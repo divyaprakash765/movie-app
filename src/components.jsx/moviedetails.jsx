@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { asyncloadmovie } from "../store/actions/movieAction";
 import { Link, Links, useLocation, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
+import HorizontalCard from "./template/HorizontalCards";
+import { removemovie } from "../store/reducers/movieSlice";
+
 
 function Moviedetails() {
     const {pathname} = useLocation()
@@ -12,10 +15,10 @@ function Moviedetails() {
 
     useEffect(() => {
        dispatch(asyncloadmovie(id))
-       return ()=>{
-        dispatch(removemovie())
-       }
-    }, []);
+       return () => {
+        dispatch(removemovie()); // This clears the movie details
+     };
+    }, [dispatch, id]);
 
     const navigate = useNavigate();
 
@@ -28,7 +31,7 @@ function Moviedetails() {
             backgroundRepeat: "no-repeat"
             
         }}
-        className="w-screen h-screen px-[10%]">
+        className="w-screen h-[180vh] px-[10%]">
         {/* part1 - nav */}
             <nav className="w-full h-[10vh] text-zinc-100 flex gap-10 items-center text-xl">
             <Link 
@@ -150,7 +153,15 @@ function Moviedetails() {
          
             {/* Recommendation & similarity*/}
 
-        
+            <h1 className="text-3xl mt-10 font-bold text-white">
+                <hr className="text-2xl bg-zinc-500"/>
+                Recommendations & Similar stuff</h1>
+
+            <HorizontalCard
+    data={
+        (info?.recommendations?.length ? info.recommendations : info?.similar) || []
+    }
+/>
 
         </div>
     ) : <Loading/>
