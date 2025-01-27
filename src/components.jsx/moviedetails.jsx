@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncloadmovie } from "../store/actions/movieAction";
-import { Link, Links, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, Links, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import Loading from "./Loading";
 import HorizontalCard from "./template/HorizontalCards";
 import { removemovie } from "../store/reducers/movieSlice";
@@ -95,6 +95,8 @@ function Moviedetails() {
 
             <div className="flex flex-col gap-8">
 
+       
+       {info.watchproviders &&
          <div className="flex gap-5 items-center">
             <h1 className="text-zinc-100 font-semibold text-md">Available on Platform</h1>
             {info.watchproviders && 
@@ -110,8 +112,9 @@ function Moviedetails() {
     )})
             }
         </div>
+}
 
- 
+        {info.watchproviders &&
          <div className="flex gap-5 items-center">
          <h1 className="text-zinc-100 font-semibold text-md mr-7">Available on Rent</h1>
          {info.watchproviders && 
@@ -128,7 +131,9 @@ function Moviedetails() {
             }
 
 </div>
+}
 
+{info.watchproviders &&
 <div className="flex gap-5 items-center">
 <h1 className="text-zinc-100 font-semibold text-md mr-8">Available on Buy</h1>
 
@@ -146,6 +151,7 @@ function Moviedetails() {
             }
 
 </div>
+}
 </div>
            
          </div>
@@ -163,6 +169,7 @@ function Moviedetails() {
     }
 />
 
+    <Outlet/>
         </div>
     ) : <Loading/>
 }

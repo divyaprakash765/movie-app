@@ -11,6 +11,8 @@ import ContactUs from "./components.jsx/Contact";
 import Moviedetails from "./components.jsx/moviedetails";
 import Persondetails from "./components.jsx/PersonDetails";
 import Tvdetails from "./components.jsx/Tvdetails";
+import Trailer from "./components.jsx/template/Trailer";
+import NotFound from "./components.jsx/Notfound";
 
 function App(){
 
@@ -21,16 +23,20 @@ function App(){
         <Route path = "/trending" element = {<Trending/>}/>
         <Route path = "/popular" element = {<Popular/>}/>
         <Route path = "/movie" element = {<Movie/>} />
-        <Route path = "/movie/details/:id" element={<Moviedetails/>}/>
-        
+        <Route path = "/movie/details/:id" element={<Moviedetails/>}>
+        <Route path = "/movie/details/:id/trailer" element={<Trailer/>}/>
+        </Route>
         <Route path = "/tv" element = {<Tvshow/>} />
-        <Route path = "/tv/details/:id" element={<Tvdetails/>}/>
+        <Route path = "/tv/details/:id" element={<Tvdetails/>}>
+        <Route path = "/tv/details/:id/trailer" element={<Trailer/>}/>
+        </Route>
         
         <Route path = "/person" element = {<People/>} />
         <Route path = "/person/details/:id" element={<Persondetails/>}/>
         
         <Route path = "/about" element = {<About/>}/>
         <Route path = "/contact" element = {<ContactUs/>}/>
+        <Route path = "*" element = {<NotFound/>}/>
       </Routes>
     </div>
   )

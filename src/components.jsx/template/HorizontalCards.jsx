@@ -8,7 +8,7 @@ function HorizontalCard({data}){
 
          <div className="w-[100%] h-[70vh] flex overflow-y-hidden p-5">
             
-            {data.map((d,i)=>(
+            {data.length > 0 ? data.map((d,i)=>(
               <Link to = {`/${d.media_type}/details/${d.id}`} key = {i} className="min-w-[20%] mr-5 bg-zinc-900 rounded-md border border-zinc-700 mr-5">
                 <img
                 className="w-full h-[55%] object-cover rounded-md"
@@ -21,7 +21,9 @@ function HorizontalCard({data}){
           <p className="w-[100%] text-white px-[5%]">{d.overview.slice(0,60)}...<Link className="text-blue-500">more</Link></p>
           </div>
               </Link>
-            ))}
+            )) : <h1 className="text-3xl text-white font-black text-center mt-5">Nothing to Show</h1>
+          
+          }
         
          </div>
     )
