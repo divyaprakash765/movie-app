@@ -19,6 +19,7 @@ function Trailer(){
             className="absolute ri-close-fill hover:text-[#6556CD] ml-4 cursor-pointer text-3xl text-white right-[50%] border rounded-lg border-2 top-[5%]">
             </Link>
             {ytvideo ? <ReactPlayer
+            controls
             height = {600}
             width = {1500}
             url = {`https://www.youtube.com/watch?v=${ytvideo.key}`}/>: <NotFound/>}

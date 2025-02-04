@@ -31,7 +31,7 @@ function Tvdetails() {
             backgroundRepeat: "no-repeat"
             
         }}
-        className="relative w-screen h-[180vh] px-[10%]">
+        className="relative w-screen h-[230vh] px-[10%]">
         {/* part1 - nav */}
             <nav className="w-full h-[10vh] text-zinc-100 flex gap-10 items-center text-xl">
             <Link 
@@ -97,7 +97,7 @@ function Tvdetails() {
          {info.watchproviders &&
          <div className="flex gap-5 items-center">
             <h1 className="text-zinc-100 font-semibold text-md">Available on Platform</h1>
-            {info.watchproviders && 
+            {info.watchproviders.flatrate && 
             info.watchproviders.flatrate &&
             info.watchproviders.flatrate.map((w,index) => {
                 return( 
@@ -157,7 +157,28 @@ function Tvdetails() {
          </div>
          </div>
          
-            {/* Recommendation & similarity*/}
+            {/* Seasons*/}
+
+            <h1 className="text-3xl mt-10 font-bold text-white">
+                <hr className="text-2xl bg-zinc-500"/>
+                Recommendations & Similar stuff</h1>
+
+           <div className="w-[100%] h-[55vh] flex overflow-y-hidden p-5">
+            {info.detail.seasons.map((s,i)=>(
+                <div className="w-[15vh] mr-[12%]">
+                <img
+                key = {i}
+                            className="h-[40vh] min-w-[15vw] object-cover rounded shadow-[8px_7px_38px_2px_rgba(0,0,0,0.5)]"
+                            src={`https://image.tmdb.org/t/p/original/${s.poster_path || s.backdrop_path || s.profile_path}`}
+                            alt=""
+                        />
+                        <h1 className="text-2xl text-zinc-200 mt-3 font-semibold">
+                            {s.name || s.title || s.original_name || s.original_title}
+                        </h1>
+                </div>
+            ))}
+           
+           </div>
 
             <h1 className="text-3xl mt-10 font-bold text-white">
                 <hr className="text-2xl bg-zinc-500"/>
