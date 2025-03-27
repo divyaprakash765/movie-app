@@ -8,7 +8,7 @@ function Sidenav(){
         <div className="w-[21.5%] h-full border-r border-zinc-200 p-10">
             <h1 className="text-2xl text-white font-bold">
             <i className="ri-tv-fill text-[#6556CD] mr-1"></i>
-                <span >Web App</span>
+                <span >Movie App</span>
             </h1>
             <nav className="flex flex-col text-zinc-400 text-xl gap-3">
             <h1 className="text-white font-semibold text-xl mt-5 mb-5">New Feeds</h1>
