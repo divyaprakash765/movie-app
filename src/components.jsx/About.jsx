@@ -13,7 +13,7 @@ function About() {
                     Whether you’re a movie enthusiast or a TV series binge-watcher, <span className="text-purple-400 font-bold">Movie App</span> brings all the latest updates to your screen. 
                     Explore new content, learn about your favorite stars, and dive into the world of entertainment.
                 </p>
-            </div>
+            </div> 
         </div>
     );
 }
